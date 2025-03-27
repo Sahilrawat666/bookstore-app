@@ -1,6 +1,8 @@
 import React from "react";
 import "./Hero.css";
 import books from "../images/books.jpg";
+import { MdMail } from "react-icons/md";
+// import bookimgg from "../images/bookimgg.jpg"
 
 function Hero() {
   return (
@@ -16,12 +18,15 @@ function Hero() {
             accusantium vitae hic quidem natus ad. Labore deleniti fugiat
             eveniet vel ipsam. Sed, culpa.
           </p>
-          <input
-            type="text"
-            placeholder="Enter your email to login"
-            className="email"
-          />
-          <button className="secondary"> Secondary</button>
+          <p className=" flex items-center ">
+            <MdMail className="absolute items-center ml-1 " />
+            <input
+              type="text"
+              placeholder="Enter your email to login"
+              className="email pl-6 py-1"
+            />
+          </p>
+          <button className="secondary"> Get started</button>
         </div>
         <div className="booksimg">
           <img src={books} alt="img" />

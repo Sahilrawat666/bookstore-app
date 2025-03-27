@@ -1,7 +1,10 @@
 import React from "react";
 import "./Footer.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {} from "@fortawesome/free-solid-svg-icons";
+import {
+  FaFacebookSquare,
+  FaInstagramSquare,
+  FaTwitterSquare,
+} from "react-icons/fa";
 
 function Footer() {
   return (
@@ -15,7 +18,14 @@ function Footer() {
             <li>press kit</li>
           </ul>
 
-          <label className="footer-icons"></label>
+          <label className="footer-icons flex gap-4 ">
+            <FaFacebookSquare className="font-bold size-5 cursor-pointer " />
+            <FaTwitterSquare className="font-bold size-5 cursor-pointer" />
+            <FaInstagramSquare className="font-bold size-5 cursor-pointer" />
+          </label>
+          {/* <FontAwesomeIcon icon={faHouse} /> */}
+          {/* <FontAwesomeIcon icon={faDog} /> */}
+          {/* <FontAwesomeIcon icon={faDragon} /> */}
 
           <p>copyright c 2025 - All right reserved by ACME industries Ltd</p>
         </div>

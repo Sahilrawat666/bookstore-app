@@ -16,7 +16,7 @@ function ContactForm() {
   const onSubmit = (data) => console.log(data);
   return (
     <>
-      <div className="flex h-screen justify-center items-center ">
+      <div className="flex h-screen justify-center items-center  dark:bg-slate-900 dark:text-white">
         <div className=" border-[1px solid bg-gray-500] shadow-md p-5 rounded-md w-100">
           <div className="">
             <form onSubmit={handleSubmit(onSubmit)} method="div">
@@ -28,7 +28,9 @@ function ContactForm() {
                 ✕
               </Link>
 
-              <h3 className="font-bold md: text-3xl text-center">Contact Us</h3>
+              <h3 className="font-bold md: text-3xl text-center  dark:bg-slate-900 dark:text-white">
+                Contact Us
+              </h3>
               <div className="mt-4 ">
                 <span>Name</span>
                 <br />
@@ -62,7 +64,7 @@ function ContactForm() {
               <div className="mt-4">
                 <span>Message</span>
                 <br />
-                <input
+                <textarea
                   type="text"
                   placeholder="Type your message"
                   className="   px-3 h-28 w-full border rounded-md outline-none mt-1"

@@ -39,10 +39,8 @@
 
 .email {
   width: 100%;
-  padding: 5px;
   border: 1px solid #d0d0d0;
   border-radius: 5px;
-  margin-bottom: 30px;
 }
 .secondary {
   padding: 6px 7px;
@@ -51,6 +49,9 @@
   border-radius: 5px;
   border: none;
   cursor: pointer;
+}
+.secondary:hover {
+  background: #fd0a9c;
 }
 
 @media screen and (max-width: 769px) {

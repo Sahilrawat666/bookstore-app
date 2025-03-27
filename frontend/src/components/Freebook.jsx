@@ -1,20 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Freebook.css";
-import list from "../../public/list.json";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Cards from "./Cards.jsx";
+import axios from "axios";
+
 function Freebook() {
-  const filterData = list.filter((data) => data.category === "free");
+  const [book, setBook] = useState([]);
+  useEffect(() => {
+    const getBook = async () => {
+      try {
+        const res = await axios.get("http://localhost:4001/book");
+
+        const data = res.data.filter((data) => data.category === "free");
+        console.log(data);
+        setBook(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getBook();
+  }, []);
 
   var settings = {
     dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     initialSlide: 0,
     responsive: [
       {
@@ -27,7 +42,7 @@ function Freebook() {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -47,7 +62,7 @@ function Freebook() {
     <>
       <div className="freebooks">
         <div className="freebook-heading">
-          <h1>free offered cources</h1>
+          <h1 className=" dark:text-white">free offered cources</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere sed
             deserunt, tempore doloremque, debitis perferendis at dicta culpa
@@ -58,7 +73,7 @@ function Freebook() {
         <div>
           {" "}
           <Slider {...settings}>
-            {filterData.map((item) => (
+            {book.map((item) => (
               <Cards item={item} key={item.id} />
             ))}
           </Slider>
