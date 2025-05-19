@@ -27,3 +27,6 @@
   content: "→";
   color: red;
 }
+.slick-dots li button:before {
+  color: red;
+}

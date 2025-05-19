@@ -15,11 +15,9 @@ function Freebook() {
         const res = await axios.get("http://localhost:4001/book");
 
         const data = res.data.filter((data) => data.category === "free");
-        console.log(data);
+        // console.log(data);
         setBook(data);
-      } catch (error) {
-        console.log(error);
-      }
+      } catch (error) {}
     };
     getBook();
   }, []);

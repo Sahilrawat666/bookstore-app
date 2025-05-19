@@ -1,13 +1,8 @@
-// api 
+import express from "express";
+import { getAllBooks } from "../controller/book.controller.js";
 
+const router = express.Router();
 
-
-import express from "express"
-import { getAllBooks } from "../controller/book.controller.js"
-
-const router =express.Router()
-
-router.get("/",getAllBooks);
+router.get("/", getAllBooks);
 
 export default router;
-

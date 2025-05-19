@@ -1,6 +1,6 @@
 import React from "react";
 import "./Hero.css";
-import books from "../images/books.jpg";
+import book from "../images/book.png";
 import { MdMail } from "react-icons/md";
 // import bookimgg from "../images/bookimgg.jpg"
 
@@ -28,8 +28,8 @@ function Hero() {
           </p>
           <button className="secondary"> Get started</button>
         </div>
-        <div className="booksimg">
-          <img src={books} alt="img" />
+        <div className="booksimg ">
+          <img className="  dark:mix-blend-lighten" src={book} alt="img" />
         </div>
       </div>
     </>

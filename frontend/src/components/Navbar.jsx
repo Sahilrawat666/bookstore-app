@@ -67,7 +67,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className=" top bg-gray-300 dark:bg-slate-900 dark:text-white dark:border-white ">
+      <nav className=" sticky top-0 left-0 bg-gray-300 dark:bg-slate-900 dark:text-white dark:border-white ">
         <label htmlFor="" className="logo text-black dark:text-white">
           Book Store
         </label>

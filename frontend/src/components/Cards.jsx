@@ -1,9 +1,14 @@
 import React from "react";
+import { data, useNavigate } from "react-router-dom";
 
 function Cards({ item }) {
+  const navigate = useNavigate();
   return (
     <>
-      <div className="card mx-auto bg-base-100 w-63 mb-4 mt-4 shadow-xl hover:scale-105  cursor-pointer dark:bg-slate-900 dark:border-1  ">
+      <div
+        onClick={() => navigate(`/book/${item._id}`)}
+        className="card mx-auto bg-base-100 w-63 mb-4 mt-4 shadow-xl hover:scale-105  cursor-pointer dark:bg-slate-900 dark:border-1  "
+      >
         <figure className="max-w-full">
           <img src={item.image} alt="Shoes" />
         </figure>
