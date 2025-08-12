@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import bookRoute from "./route/book.route.js";
 import cors from "cors";
 import userRoute from "./route/user.route.js";
-import book from "./model/book.model.js";
+// import book from "./model/book.model.js";
 
 const app = express();
 
@@ -19,6 +19,7 @@ const URI = process.env.MONGODB_URI;
 //connect to mongodb
 try {
   mongoose.connect(URI);
+  //if using momgodb atlas
   // mongoose.connect(URI, {
   //   useNewUrlParser: true,
   //   useUnifiedTopology: true,
@@ -32,19 +33,13 @@ try {
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
 
+// app.get("/book/:id", async (req, res) => {
+//   const id = req.params.id;
+//   const filter = { _id: new Object(id) };
+//   const result = await book.findOne(filter);
+//   res.send(result);
+// });
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-
-// find book by id
-// app.get("/books/:id"),
-//   async (req, res) => {
-//     try {
-//       const { id } = req.params;
-//       const book = await book.findById(id);
-//       return res.status(200).json(book);
-//     } catch (error) {
-//       console.log(error.message);
-//       res.ststus(500).json({ message: error.message });
-//     }
-//   };

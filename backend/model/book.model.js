@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const bookSchema = mongoose.Schema({
-  mame: String,
+  name: String,
   price: Number,
   category: String,
   image: String,
