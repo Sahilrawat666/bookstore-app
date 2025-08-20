@@ -1,3 +1,11 @@
+/**
+ * The ContactForm component in JavaScript React renders a form for users to submit their contact
+ * information.
+ * @returns The `ContactForm` component is being returned. It is a form component that allows users to
+ * enter their name, email, and message for contacting. The form includes validation for the name and
+ * email fields. When the form is submitted, the data is logged to the console. The form also has a
+ * submit button for users to submit their information.
+ */
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";

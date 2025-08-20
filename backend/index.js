@@ -4,7 +4,13 @@ import mongoose from "mongoose";
 import bookRoute from "./route/book.route.js";
 import cors from "cors";
 import userRoute from "./route/user.route.js";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 // import book from "./model/book.model.js";
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = dirname(__filename);
 
 const app = express();
 
@@ -19,7 +25,7 @@ const URI = process.env.MONGODB_URI;
 //connect to mongodb
 try {
   mongoose.connect(URI);
-  //if using momgodb atlas
+  //if using momgodb compass
   // mongoose.connect(URI, {
   //   useNewUrlParser: true,
   //   useUnifiedTopology: true,
@@ -39,6 +45,12 @@ app.use("/user", userRoute);
 //   const result = await book.findOne(filter);
 //   res.send(result);
 // });
+
+app.use(express.static(path.resolve(__dirname, "frontend", "dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
