@@ -6,21 +6,24 @@
       "use": "@vercel/node"
     },
     {
-      "src": "frontend/vite.config.js",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "frontend/dist"
-      }
+      "src": "backend/frontend/package.json",
+      "use": "@vercel/static-build"
     }
   ],
+  "buildCommand": "cd backend/frontend && npm install && npm run build",
+  "outputDirectory": "backend/frontend/dist",
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "^/book(?:/.*)?$",
+      "dest": "backend/index.js"
+    },
+    {
+      "src": "^/user(?:/.*)?$",
       "dest": "backend/index.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/frontend/dist/index.html"
+      "dest": "/backend/frontend/dist/index.html"
     }
   ]
 }
